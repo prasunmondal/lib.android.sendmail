@@ -24,7 +24,7 @@ class SendMailTrigger {
         val email =
             SendEmailAsyncTask()
         email.activity = this
-        email.m = Mail(
+        email.m = MailSender(
             fromEmail,
             fromEmailKey
         )

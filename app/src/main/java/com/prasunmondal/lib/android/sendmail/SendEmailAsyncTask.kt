@@ -7,7 +7,7 @@ import javax.mail.MessagingException
 
 internal class SendEmailAsyncTask :
     AsyncTask<Void?, Void?, Boolean>() {
-    var m: Mail? = null
+    var m: MailSender? = null
     var activity: SendMailTrigger? = null
 
     override fun doInBackground(vararg params: Void?): Boolean {

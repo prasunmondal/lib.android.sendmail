@@ -12,7 +12,7 @@ class MainActivity : AppCompatActivity() {
 
         SendMailTrigger().sendMessage("prsn.online@gmail.com",
             "bpuxonmqiwokunaf",
-            listOf<String>("prasun.mondal02@gmail.com").toTypedArray(),
+            listOf("prasun.mondal02@gmail.com").toTypedArray(),
             "SubjectTest",
             "Content",
             "Sending Bill...",
