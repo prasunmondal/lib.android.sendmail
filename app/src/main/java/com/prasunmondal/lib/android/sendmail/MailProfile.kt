@@ -5,7 +5,7 @@ import android.content.Context
 import java.text.SimpleDateFormat
 import java.util.*
 
-class PostToGSheet(
+public class MailProfile(
     private var fromEmail: String,
     private var fromEmailKey: String,
     private var recipients: Array<String>,

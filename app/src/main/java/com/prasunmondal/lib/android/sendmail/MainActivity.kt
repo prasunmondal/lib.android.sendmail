@@ -10,24 +10,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        SendMailTrigger().sendMessage("prsn.online@gmail.com",
-            "bpuxonmqiwokunaf",
-            listOf("prasun.mondal02@gmail.com").toTypedArray(),
-            "SubjectTest",
-            "Content",
-            "Sending Bill...",
-            "Bill Sent.",
-            false,::a,::b,::c,::d,::e)
-
-//        SendMailTrigger().sendMessage("prsn.online@gmail.com",
-//            "bpuxonmqiwokunaf",
-//            listOf("prasun.mondal02@gmail.com").toTypedArray(),
-//            "SubjectTest",
-//            "<h1>Content</h1>",
-//            findViewById(R.id.textview),
-//            "Sending Bill...",
-//            "Bill Sent.",
-//            true)
+        Config.Singleton.instance.o.send(listOf("prasun.mondal02@gmail.com").toTypedArray(), "Hi", "Good Night!")
     }
 
     fun a() {
