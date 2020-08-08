@@ -12,7 +12,7 @@ class SendMailTrigger {
         this.viewStore = view
         this.initialMessage = initialMessage
         this.finalMessage = finalMessage
-//        displayInitialMessage()
+        whileSending()
         val email =
             SendEmailAsyncTask()
         email.activity = this
@@ -28,16 +28,23 @@ class SendMailTrigger {
         email.execute()
     }
 
-//    fun displayMessage(message: String) {
-//        var finalDisplay = message
-//        if(message.equals("Mail Sent."))
-//            finalDisplay = finalMessage
-//        Snackbar.make(viewStore, finalDisplay, Snackbar.LENGTH_SHORT)
-//            .setAction("Action", null).show()
-//    }
-//
-//    fun displayInitialMessage() {
-//        Snackbar.make(viewStore, initialMessage, Snackbar.LENGTH_INDEFINITE)
-//            .setAction("Action", null).show()
-//    }
+    fun onSuccess() {
+
+    }
+
+    fun onFailBadAccountDetails() {
+
+    }
+
+    fun onFailFailedSending() {
+
+    }
+
+    fun onFailGenericError() {
+
+    }
+
+    private fun whileSending() {
+
+    }
 }
