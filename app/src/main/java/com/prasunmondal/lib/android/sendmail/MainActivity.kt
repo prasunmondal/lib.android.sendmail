@@ -15,19 +15,39 @@ class MainActivity : AppCompatActivity() {
             listOf<String>("prasun.mondal02@gmail.com").toTypedArray(),
             "SubjectTest",
             "Content",
-            findViewById(R.id.textview),
             "Sending Bill...",
             "Bill Sent.",
-            false)
+            false,::a,::b,::c,::d,::e)
 
-        SendMailTrigger().sendMessage("prsn.online@gmail.com",
-            "bpuxonmqiwokunaf",
-            listOf("prasun.mondal02@gmail.com").toTypedArray(),
-            "SubjectTest",
-            "<h1>Content</h1>",
-            findViewById(R.id.textview),
-            "Sending Bill...",
-            "Bill Sent.",
-            true)
+//        SendMailTrigger().sendMessage("prsn.online@gmail.com",
+//            "bpuxonmqiwokunaf",
+//            listOf("prasun.mondal02@gmail.com").toTypedArray(),
+//            "SubjectTest",
+//            "<h1>Content</h1>",
+//            findViewById(R.id.textview),
+//            "Sending Bill...",
+//            "Bill Sent.",
+//            true)
     }
+
+    fun a() {
+        println("a")
+    }
+
+    fun b() {
+        println("b")
+    }
+
+    fun c() {
+        println("c")
+    }
+
+    fun d() {
+        println("d")
+    }
+
+    fun e() {
+        println("e")
+    }
+
 }
