@@ -1,19 +1,28 @@
 package com.prasunmondal.mbros_delivery.utils.mailUtils
 
 import android.view.View
-import com.google.android.material.snackbar.Snackbar
 
 class SendMailTrigger {
 
-    private lateinit var viewStore: View
     private var initialMessage: String = "Sending Mail..."
     private var finalMessage: String = "Mail Sent."
 
-    fun sendMessage(fromEmail: String, fromEmailKey: String, recipients: Array<String>, subject: String, body: String, view: View, initialMessage: String, finalMessage: String, isHTML: Boolean) {
-        this.viewStore = view
+    private lateinit var onSuccessMethod: () -> Unit
+    private lateinit var onFailBadAccountDetailsMethod: () -> Unit
+    private lateinit var onFailFailedSendingMethod: () -> Unit
+    private lateinit var onFailGenericErrorMethod: () -> Unit
+
+
+    fun sendMessage(fromEmail: String, fromEmailKey: String, recipients: Array<String>, subject: String, body: String, initialMessage: String, finalMessage: String, isHTML: Boolean,
+                    onSuccess: () -> Unit, onFailBadAccountDetails: () -> Unit, onFailFailedSending: () -> Unit, onFailGenericError: () -> Unit, whileSending: () -> Unit) {
+        onSuccessMethod = onSuccess
+        onFailBadAccountDetailsMethod = onFailBadAccountDetails
+        onFailFailedSendingMethod = onFailFailedSending
+        onFailGenericErrorMethod = onFailGenericError
+
         this.initialMessage = initialMessage
         this.finalMessage = finalMessage
-        displayInitialMessage()
+        whileSending.invoke()
         val email =
             SendEmailAsyncTask()
         email.activity = this
@@ -29,16 +38,19 @@ class SendMailTrigger {
         email.execute()
     }
 
-    fun displayMessage(message: String) {
-        var finalDisplay = message
-        if(message.equals("Mail Sent."))
-            finalDisplay = finalMessage
-        Snackbar.make(viewStore, finalDisplay, Snackbar.LENGTH_SHORT)
-            .setAction("Action", null).show()
+    fun onSuccess() {
+        onSuccessMethod.invoke()
     }
 
-    fun displayInitialMessage() {
-        Snackbar.make(viewStore, initialMessage, Snackbar.LENGTH_INDEFINITE)
-            .setAction("Action", null).show()
+    fun onFailBadAccountDetails() {
+        onFailBadAccountDetailsMethod.invoke()
+    }
+
+    fun onFailFailedSending() {
+        onFailFailedSendingMethod.invoke()
+    }
+
+    fun onFailGenericError() {
+        onFailGenericErrorMethod.invoke()
     }
 }

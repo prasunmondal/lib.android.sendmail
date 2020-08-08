@@ -8,10 +8,6 @@ import javax.mail.internet.MimeBodyPart
 import javax.mail.internet.MimeMessage
 import javax.mail.internet.MimeMultipart
 
-
-/**
- * Created by brandonjenniges on 11/6/15.
- */
 class Mail() : Authenticator() {
     private var _user = ""
     private var _pass = ""
