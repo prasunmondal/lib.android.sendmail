@@ -10,7 +10,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        Config.Singleton.instance.o.send(listOf("prasun.mondal02@gmail.com").toTypedArray(), "Hi", "Good Night!")
+        MailConfig.Singleton.instance.o.send("prasun.mondal02@gmail.com", "Hi", "Good Night!")
     }
 
     fun a() {

@@ -37,18 +37,18 @@ class SendMailTrigger {
     }
 
     fun onSuccess() {
-        onSuccessMethod.invoke()
+        this.onSuccessMethod.invoke()
     }
 
     fun onFailBadAccountDetails() {
-        onFailBadAccountDetailsMethod.invoke()
+        this.onFailBadAccountDetailsMethod.invoke()
     }
 
     fun onFailFailedSending() {
-        onFailFailedSendingMethod.invoke()
+        this.onFailFailedSendingMethod.invoke()
     }
 
     fun onFailGenericError() {
-        onFailGenericErrorMethod.invoke()
+        this.onFailGenericErrorMethod.invoke()
     }
 }

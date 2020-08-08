@@ -1,8 +1,8 @@
 package com.prasunmondal.lib.android.sendmail
 
-class Config {
+class MailConfig {
 
-    var o =  MailProfile(
+    var o =  MailingProfile(
         "prsn.online@gmail.com",
         "bpuxonmqiwokunaf",
         listOf("prasun.mondal02@gmail.com").toTypedArray(),
@@ -15,6 +15,6 @@ class Config {
         {}
     )
     object Singleton {
-        var instance = Config()
+        var instance = MailConfig()
     }
 }

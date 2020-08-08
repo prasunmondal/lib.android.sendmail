@@ -1,6 +1,4 @@
-package com.prasunmondal.mbros_delivery.utils.mailUtils
-
-import android.view.View
+package com.prasunmondal.lib.android.sendmail
 
 class SendMailTrigger {
 
@@ -26,7 +24,7 @@ class SendMailTrigger {
         val email =
             SendEmailAsyncTask()
         email.activity = this
-        email.m = Mail(
+        email.m = MailSender(
             fromEmail,
             fromEmailKey
         )
@@ -39,18 +37,18 @@ class SendMailTrigger {
     }
 
     fun onSuccess() {
-        onSuccessMethod.invoke()
+        this.onSuccessMethod.invoke()
     }
 
     fun onFailBadAccountDetails() {
-        onFailBadAccountDetailsMethod.invoke()
+        this.onFailBadAccountDetailsMethod.invoke()
     }
 
     fun onFailFailedSending() {
-        onFailFailedSendingMethod.invoke()
+        this.onFailFailedSendingMethod.invoke()
     }
 
     fun onFailGenericError() {
-        onFailGenericErrorMethod.invoke()
+        this.onFailGenericErrorMethod.invoke()
     }
 }

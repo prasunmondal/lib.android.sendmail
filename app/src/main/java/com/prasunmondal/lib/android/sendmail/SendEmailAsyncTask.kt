@@ -14,7 +14,6 @@ internal class SendEmailAsyncTask :
         return try {
             if (m!!.send()) {
                 Log.e(SendEmailAsyncTask::class.java.name, "Email sent.")
-                Log.d("something: " , activity.toString())
                 activity!!.onSuccess()
             } else {
                 Log.e(SendEmailAsyncTask::class.java.name, "Email failed to send.")

@@ -1,4 +1,4 @@
-package com.prasunmondal.mbros_delivery.utils.mailUtils
+package com.prasunmondal.lib.android.sendmail
 
 import java.util.*
 import javax.activation.*
@@ -8,7 +8,7 @@ import javax.mail.internet.MimeBodyPart
 import javax.mail.internet.MimeMessage
 import javax.mail.internet.MimeMultipart
 
-class Mail() : Authenticator() {
+class MailSender() : Authenticator() {
     private var _user = ""
     private var _pass = ""
     lateinit private var _to: Array<String>

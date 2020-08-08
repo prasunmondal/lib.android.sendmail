@@ -1,11 +1,6 @@
 package com.prasunmondal.lib.android.sendmail
 
-import android.annotation.SuppressLint
-import android.content.Context
-import java.text.SimpleDateFormat
-import java.util.*
-
-public class MailProfile(
+class MailingProfile(
     private var fromEmail: String,
     private var fromEmailKey: String,
     private var recipients: Array<String>,
@@ -17,10 +12,16 @@ public class MailProfile(
     private var onFailGenericError: () -> Unit,
     private var whileSending: () -> Unit) {
 
-    @SuppressLint("SimpleDateFormat")
-    fun send(recipients: Array<String>, subject: String, body: String) {
-        sendMain(fromEmail, fromEmailKey, recipients, subject, body, isHTML,
-            onSuccess, onFailBadAccountDetails, onFailFailedSending, onFailGenericError, whileSending)
+    fun send(recipients: List<String>, subject: String, body: String) {
+        sendMain(this.fromEmail, this.fromEmailKey, recipients, subject, body, this.isHTML,
+            this.onSuccess, this.onFailBadAccountDetails,
+            this.onFailFailedSending, this.onFailGenericError, this.whileSending)
+    }
+
+    fun send(recipient: String, subject: String, body: String) {
+        sendMain(this.fromEmail, this.fromEmailKey, listOf(recipient), subject, body, this.isHTML,
+            this.onSuccess, this.onFailBadAccountDetails,
+            this.onFailFailedSending, this.onFailGenericError, this.whileSending)
     }
 
     fun updatefromEmail(fromEmail: String) {
@@ -63,16 +64,16 @@ public class MailProfile(
         this.whileSending = method
     }
 
-    private fun sendMain(fromEmail: String, fromEmailKey: String, recipients: Array<String>, subject: String, body: String, isHTML: Boolean,
-                         onSuccess: () -> Unit, onFailBadAccountDetails: () -> Unit, onFailFailedSending: () -> Unit, onFailGenericError: () -> Unit, whileSending: () -> Unit) {
+    private fun sendMain(fromEmail: String, fromEmailKey: String, recipients: List<String>, subject: String, body: String, isHTML: Boolean,
+                         onSuccess1: () -> Unit, onFailBadAccountDetails1: () -> Unit, onFailFailedSending1: () -> Unit, onFailGenericError1: () -> Unit, whileSending1: () -> Unit) {
         SendMailTrigger().sendMessage(fromEmail,
             fromEmailKey,
-            recipients,
+            recipients.toTypedArray(),
             subject,
             body,
             "Sending Bill...",
             "Bill Sent.",
             isHTML,
-            onSuccess,onFailBadAccountDetails,onFailFailedSending,onFailGenericError,whileSending)
+            onSuccess1,onFailBadAccountDetails1,onFailFailedSending1,onFailGenericError1,whileSending1)
     }
 }
